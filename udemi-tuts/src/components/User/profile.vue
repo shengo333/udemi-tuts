@@ -9,18 +9,31 @@
                     <span>Known as:</span> {{ alsoKnowAs }}
                 </li>
                 <li>
-                    <span>Lastname:</span> {{ lastname }}
+                    <span>Lastname:</span> {{ userLastname }}
                 </li>
+                <li>
+                    <span>User Age:</span> {{ userAge }}
+                </li>
+                <ul>
+                    <li v-for="(key, value, index) in userParents" :key="index" >
+                       <span>  {{value}} </span> {{key}} 
+                    </li>
+                </ul>
             </ul>
         </div>
 </template>
 
 <script>
     export default {
-        props:['alsoKnowAs','lastname'],
+        props:{
+            alsoKnowAs: String,
+            userLastname: String,
+            userAge: Number,
+            userParents: Object
+            },
         data(){
             return {
-                name:'Steve'
+                name:'leroy'
             }
         }
     }

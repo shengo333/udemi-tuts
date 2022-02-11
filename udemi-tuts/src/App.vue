@@ -4,7 +4,9 @@
             <div class="container">
                 <comp-user-profile 
                     :alsoKnowAs="name"
-                    lastname="Jones"
+                    :userLastname="lastname"
+                    :userAge="age"
+                    :userParents="parents"
                 ></comp-user-profile>
                 <button @click="updateName">Update name</button>
             </div>
@@ -22,12 +24,18 @@ import compUserProfile from './components/User/profile.vue'
         },
         data(){
             return {
-                name: "Rocket"
+                name: "Rocket",
+                lastname: "sane",
+                age: 28,
+                parents:{
+                    father: 'Mario',
+                    mather: 'Martha'
+                }
             }
         },
         methods:{
             updateName(){
-                this.name ='Mike'
+                this.name ='Beka'
             }
         }
  
