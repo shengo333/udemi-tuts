@@ -1,16 +1,35 @@
 <template>
     <div>
         <app-header></app-header>
-        <div class="container">
-            content
-        </div>
+            <div class="container">
+                <comp-user-profile 
+                    :alsoKnowAs="name"
+                    lastname="Jones"
+                ></comp-user-profile>
+                <button @click="updateName">Update name</button>
+            </div>
         <app-footer></app-footer>
     </div>
 </template>
 
 <script>
+
+import compUserProfile from './components/User/profile.vue'
+    
     export default {
-      
+        components:{
+            compUserProfile
+        },
+        data(){
+            return {
+                name: "Rocket"
+            }
+        },
+        methods:{
+            updateName(){
+                this.name ='Mike'
+            }
+        }
  
     }
 </script>
