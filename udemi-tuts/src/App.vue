@@ -7,6 +7,9 @@
                     :userLastname="lastname"
                     :userAge="age"
                     :userParents="parents"
+                    @update-lastname="lastname = $event"
+                    @say-hello="alertHello"
+                    :updateAge="updateAge"
                 ></comp-user-profile>
                 <button @click="updateName">Update name</button>
             </div>
@@ -15,27 +18,31 @@
 </template>
 
 <script>
-
-import compUserProfile from './components/User/profile.vue'
-    
+    import compUserProfile from './components/User/profile.vue';
     export default {
         components:{
             compUserProfile
         },
         data(){
             return {
-                name: "Rocket",
-                lastname: "sane",
-                age: 28,
+                name: 'Rocket',
+                lastname:'Jones',
+                age:28,
                 parents:{
-                    father: 'Mario',
-                    mather: 'Martha'
+                    father:'Mario',
+                    mother:'Martha'
                 }
             }
         },
         methods:{
             updateName(){
-                this.name ='Beka'
+                this.name ='Mike'
+            },
+            alertHello(){
+                alert('HELLO!!')
+            },
+            updateAge(value){
+                this.age = value
             }
         }
  
