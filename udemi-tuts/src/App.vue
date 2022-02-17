@@ -4,11 +4,21 @@
             <div class="container">
                 <comp-cars></comp-cars>
                 <comp-brands>
-                    <ul>
-                        <li v-for="(brand,index) in brands" :key="index">
-                            {{ brand }}
-                        </li>
-                    </ul>
+                    <div>
+                        unnamed stuff
+                    </div>
+                    <template v-slot:brands>
+                        <ul>
+                            <li v-for="(brand,index) in brands" :key="index">
+                                {{ brand }}
+                            </li>
+                        </ul>
+                    </template>
+                    <template v-slot:other>
+                        <div>some other rcontent</div>    
+                    </template>
+                    <strong>Default slot</strong>
+
                 </comp-brands>
                 <!-- <h3>Parent</h3>
                 <ul>
