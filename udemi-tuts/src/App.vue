@@ -2,27 +2,28 @@
     <div>
         <app-header></app-header>
             <div class="container">
-                <comp-life v-if="showit"></comp-life>
+                <button @click="this.activeComp = 'comp-mike'">Mike</button>
+                <button @click="this.activeComp = 'comp-steve'">Steve</button>
+                <!-- <comp-mike v-if="activeComp === 'comp-mike'"></comp-mike>
+                <comp-steve v-if="activeComp === 'comp-steve'"></comp-steve> -->
+                <component :is="activeComp"></component>
             </div>
         <app-footer></app-footer>
     </div>
 </template>
 
 <script>
-    import compLife from './components/Life'
+    import compMike  from './components/Players/mike.vue';
+    import compSteve from './components/Players/steve.vue';
     export default {
         components:{
-            compLife
+           compMike,
+           compSteve
         },
         data(){
             return {
-               showit:true
+                activeComp:'comp-mike'
             }
-        },
-        mounted(){
-            setTimeout(()=>{
-                this.showit = false;
-            },3000)
         }
     }
 </script>
