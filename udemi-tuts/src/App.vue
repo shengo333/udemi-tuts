@@ -11,6 +11,7 @@
                 </keep-alive>
             </div>
         <app-footer></app-footer>
+        <div id="dialog_here"></div>
     </div>
 </template>
 
