@@ -6,7 +6,9 @@
                 <button @click="this.activeComp = 'comp-steve'">Steve</button>
                 <!-- <comp-mike v-if="activeComp === 'comp-mike'"></comp-mike>
                 <comp-steve v-if="activeComp === 'comp-steve'"></comp-steve> -->
+                <keep-alive exclude="mike">
                 <component :is="activeComp"></component>
+                </keep-alive>
             </div>
         <app-footer></app-footer>
     </div>
