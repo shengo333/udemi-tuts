@@ -2,30 +2,21 @@
     <div>
         <app-header></app-header>
             <div class="container">
-                <button @click="this.activeComp = 'comp-mike'">Mike</button>
-                <button @click="this.activeComp = 'comp-steve'">Steve</button>
-                <!-- <comp-mike v-if="activeComp === 'comp-mike'"></comp-mike>
-                <comp-steve v-if="activeComp === 'comp-steve'"></comp-steve> -->
-                <keep-alive exclude="mike">
-                <component :is="activeComp"></component>
-                </keep-alive>
+              <comp-directives></comp-directives>
             </div>
         <app-footer></app-footer>
-        <div id="dialog_here"></div>
     </div>
 </template>
 
 <script>
-    import compMike  from './components/Players/mike.vue';
-    import compSteve from './components/Players/steve.vue';
+    import compDirectives from './components/Directives/index.vue';
     export default {
         components:{
-           compMike,
-           compSteve
+            compDirectives
         },
         data(){
             return {
-                activeComp:'comp-mike'
+               
             }
         }
     }
