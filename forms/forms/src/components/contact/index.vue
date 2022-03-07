@@ -49,17 +49,13 @@
         <div class="form-group">
             <h5>Want more spam ? </h5>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="Newsletter" id="newsletter"
-                v-model="formData.extras"
-                >
+                <input class="form-check-input" type="checkbox" value="Newsletter" id="newsletter">
                 <label class="form-check-label" for="newsletter">
                     Newsletter
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="Promotions" id="promotions"
-                v-model="formData.extras"
-                >
+                <input class="form-check-input" type="checkbox" value="Promotions" id="promotions">
                 <label class="form-check-label" for="newsletter">
                     Promotions
                 </label>
@@ -69,17 +65,13 @@
         <div class="form-group">
             <h5>What are you ? </h5>
             <div class="form-check">
-                <input class="form-check-input" type="radio" id="human" value="human" name="origin"
-                v-model="formData.gender"
-                >
+                <input class="form-check-input" type="radio" id="human" value="human" name="origin">
                 <label class="form-check-label" for="human">
                     Human
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="radio" id="alien" value="alien" name="origin"
-                v-model="formData.gender"
-                >
+                <input class="form-check-input" type="radio" id="alien" value="alien" name="origin">
                 <label class="form-check-label" for="alien">
                     Alien
                 </label>
@@ -88,14 +80,9 @@
 
         <div class="form-group">
           <label for="country">Country</label>
-          <select class="form-control" id="country"
-            v-model="formData.country"
-          >
-            <option 
-              v-for="(country, index) in countries"
-              :key="index+country"
-            >
-              {{ country }}
+          <select class="form-control" id="country">
+            <option>
+              Francisland
             </option>
           </select>
         </div>
@@ -118,21 +105,11 @@
   export default {
     data(){
       return {
-        countries:[
-          'EEUU',
-          'India',
-          'China',
-          'Russia',
-          'Israel'
-        ],
         formData:{
           name:'',
           email:'',
           subject:'',
-          message:'',
-          extras:[],
-          gender:'alien',
-          country:''
+          message:''
         }
       }
     },
