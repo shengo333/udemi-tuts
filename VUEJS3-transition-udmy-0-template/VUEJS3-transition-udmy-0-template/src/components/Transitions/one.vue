@@ -58,7 +58,7 @@
         </div>
     </transition>
     <button class="btn btn-primary" @click="display5=!display5"> 
-        togle beka
+        toggle beka
     </button>
 
 
