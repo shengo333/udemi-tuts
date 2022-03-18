@@ -10,6 +10,21 @@
             </div>
         </transition>
 
+        <hr/>
+        
+        <button class="p-3 mb-2 bg-success text-white" @click="library = !library">
+            Toggle library animation
+        </button>
+        <transition 
+            name="costume-class-animate-css" 
+            enter-active-class="animate__animated animate__backInDown" 
+            leave-active-class="animate__animated animate__backOutLeft"
+        >
+            <div class="p-3 mb-2 bg-info text-white" v-if="library">
+                animate css transition
+            </div>
+        </transition>
+
     </div>
 </template>
 
@@ -17,7 +32,8 @@
 export default {
     data(){
         return{
-            status: false,       
+            status: false,
+            library: false,       
         }   
     }
 }
@@ -39,4 +55,5 @@ export default {
 .shengo-leave-from {
     opacity: 1;    
 }
+
 </style>
