@@ -1,7 +1,16 @@
 <template>
     <div>
         <button class="btn btn-primary" @click="status=!status">Toggle status</button>
-        <transition mode="out-in" name="shengo">
+        <transition 
+            mode="out-in" 
+            name="shengo" 
+            @before-enter="beforeEnter"
+            @enter="enter"
+            @after-enter="afterEnter"    
+            @before-leave="beforeLeave"
+            @leave="leave"
+            @after-leave="afterLeave"    
+        >
             <div class="p-3 mb-2 bg-danger text-white" v-if="!status" key="status_off">
                 OFF
             </div>
@@ -35,6 +44,26 @@ export default {
             status: false,
             library: false,       
         }   
+    },
+    methods: {
+        beforeEnter(){
+            console.log('before enter')
+        },
+        enter(){
+            console.log('enter')
+        },
+        afterEnter(){
+            console.log('after enter')
+        },
+        beforeLeave(){
+            console.log('before leave')
+        },
+        leave(el){
+            console.log('leave', el)
+        },
+        afterLeave(){
+            console.log('after leave')
+        },
     }
 }
 </script>
