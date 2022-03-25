@@ -27,10 +27,13 @@ const routes = createRouter({
     routes:[
         { path:'/', component: Home },
         { path:'/articles', component: Articles },
+        { path:'/articles/:articleId', component: Article, props:theData },
+        // { path:'/articles', component: Articles, children:[
+        //     { path:':articleId', component: Article, props:theData }
+        // ] },
         // { path:'/contact', redirect:'/' },
         { path:'/contact', component: Contact},
-        { path:'/articles/:articleId', component: Article, props:theData },
-        { path:'/:notFound', component: NotFound }
+        { path:'/:notFound(.*)', component: NotFound }
     ],
     linkActiveClass:'active'
 });
