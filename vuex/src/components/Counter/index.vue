@@ -16,6 +16,11 @@
           class="btn btn-outline-secondary btn-lg px-4"
           @click="substract"
         >-</button>
+        <button 
+          type="button" 
+          class="btn btn-outline-secondary btn-lg px-4"
+          @click="getPrize"
+        >Get Prize</button>
 
       </div>
     </div>
@@ -38,6 +43,10 @@ export default {
     },
     substract(){
       this.$store.commit('substract')
+    },
+    getPrize(){
+      const obj = this.$store.getters.getPrize;
+      alert(`Your prize: ${obj.prize}, in ${obj.attempts} attempt/s`)
     }
   }
 }

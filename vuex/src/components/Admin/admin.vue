@@ -5,7 +5,7 @@
       <div class="col-sm-5">
         <p>
           <strong>
-          Change count: {{this.$store.state.counter}}
+          Change count: {{ this.$store.getters.getCount }}
           </strong>
         </p>
 
@@ -41,12 +41,12 @@ export default {
     methods:{
       adminAdd(){
         this.$store.commit({
-          type: 'add',
+          type:'add',
           value: this.amount
         });
       },
       adminSubstract(){
-        this.$store.commit('substract',  {value: this.amount});
+        this.$store.commit('substract', { value:this.amount });
       }
     }
 }
