@@ -31,11 +31,24 @@
 
 <script>
 
-import countComponent from './count.vue'
+import countComponent from './count.vue';
+import {mapGetters} from 'vuex'
 
 export default {
   components: {
     countComponent,
+  },
+
+  computed:{
+    ...mapGetters({
+      prize: 'getPrize'
+    })
+
+    // ...mapGetters(['getPrize'])
+
+    // prize(){
+    //   return this.$store.getters.getPrize
+    // }
   },
   methods:{
     add(){
@@ -45,7 +58,7 @@ export default {
       this.$store.commit('substract')
     },
     getPrize(){
-      const obj = this.$store.getters.getPrize;
+      const obj = this.prize;
       alert(`Your prize: ${obj.prize}, in ${obj.attempts} attempt/s`)
     }
   }
