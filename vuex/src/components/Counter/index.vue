@@ -9,12 +9,12 @@
         <button 
           type="button" 
           class="btn btn-primary btn-lg px-4 gap-3"
-          @click="add"
+          @click="add()"
         >+</button>
         <button 
           type="button" 
           class="btn btn-outline-secondary btn-lg px-4"
-          @click="substract"
+          @click="substract()"
         >-</button>
         <button 
           type="button" 
@@ -32,7 +32,7 @@
 <script>
 
 import countComponent from './count.vue';
-import {mapGetters} from 'vuex'
+import {mapGetters, mapMutations} from 'vuex'
 
 export default {
   components: {
@@ -51,12 +51,13 @@ export default {
     // }
   },
   methods:{
-    add(){
-      this.$store.commit('add')
-    },
-    substract(){
-      this.$store.commit('substract')
-    },
+    ...mapMutations(['add', 'substract']),
+    // add(){
+    //   this.$store.commit('add')
+    // },
+    // substract(){
+    //   this.$store.commit('substract')
+    // },
     getPrize(){
       const obj = this.prize;
       alert(`Your prize: ${obj.prize}, in ${obj.attempts} attempt/s`)
