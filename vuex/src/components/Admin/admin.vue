@@ -5,7 +5,7 @@
       <div class="col-sm-5">
         <p>
           <strong>
-          Change count: {{ this.$store.getters.getCount }}
+          Change count: {{ this.$store.getters['counter/getCount'] }}
           </strong>
         </p>
 
@@ -19,10 +19,11 @@
         </div>
         <br/>
 
-        <button type="button" class="btn btn-primary" @click="adminAdd({value: this.amount})">
+        <button type="button" class="btn btn-primary" 
+        @click="adminAdd({ value: this.amount })">
           +
         </button>
-        <button type="button" class="btn btn-outline-secondary" @click="adminSubstract({value: this.amount})">
+        <button type="button" class="btn btn-outline-secondary" @click="adminSubstract({ value: this.amount })">
           -
         </button>
       </div>
@@ -31,8 +32,7 @@
 
 
 <script>
-
-import {mapMutations} from 'vuex'
+import { mapMutations } from 'vuex';
 
 export default {
     data(){
@@ -41,9 +41,8 @@ export default {
       }
     },
     methods:{
-
-      ...mapMutations({
-        adminAdd: 'add',
+      ...mapMutations('counter',{
+        adminAdd:'add',
         adminSubstract: 'substract'
       }),
       // adminAdd(){
