@@ -3,7 +3,10 @@
        <div class="content sign">
           
           <form @submit.prevent="onSubmit">
-            <h1>Sign in</h1>
+            <h1>
+                <span v-if="type">sing in</span>
+                <span v-else>sign up</span>
+            </h1>
            
               <div class="input_field">
                   <label>Email</label>
@@ -16,11 +19,13 @@
               </div>
               
               <button>
-                  Sign in
+                <span v-if="type">sing in</span>
+                <span v-else>sign up</span>
               </button>
 
-              <div class="change_type">
-                I want to sign up.
+              <div class="change_type" @click="type =!type">
+                <span v-if="type">I want to sing up</span>
+                <span v-else>I want to sign in</span>
               </div>
 
           </form>
@@ -43,8 +48,18 @@
         },
         methods: {
             onSubmit () {
+                if(this.type){
+                    console.log('sign in')
+                } else{
+                    console.log('sign up')
+                }
+
+
                 console.log(this.formdata)
             }
+        },
+        mounted() {
+            console.log(this.$store.state.user.name)
         }
     }
 </script>
