@@ -1,0 +1,29 @@
+body{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.grid {
+    display: grid;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0;
+    gap: 1px;
+    grid-template-columns: repeat(3, 1fr);
+}
+.cell-input {
+    height: 7rem;
+    width: 7rem;
+    background-color: #999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#changeMe{
+    height: 5rem;
+    width: 5rem;
+    background-color: red;
+}
+
