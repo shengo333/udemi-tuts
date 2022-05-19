@@ -1,4 +1,5 @@
-/* eslint-disable */
+// /* eslint-disable */
+
 import axios from 'axios';
 const FAPI_KEY = 'AIzaSyAmaoT9l169lBI1CskAQpUQr0083EmkqP0';
 
@@ -22,6 +23,19 @@ const userModule = {
         setToken(context,payload){
             localStorage.setItem("token",payload.idToken);
             localStorage.setItem("refresh",payload.refreshToken);
+        },
+        async signin(context,payload){
+            try{
+                const response = await axios.post(`https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${FAPI_KEY}`,{
+                    ...payload,
+                    returnSecureToken:true
+                });
+
+                context.commit('authUser',response.data);
+                context.dispatch('setToken',response.data)
+            } catch(error){
+                console.log(error);
+            }
         },
         signup(context,payload){
             axios.post(`https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${FAPI_KEY}`,{

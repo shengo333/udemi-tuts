@@ -47,6 +47,7 @@
             onSubmit () {
                 if(this.type){
                     console.log('sign in logic goes here')
+                    this.$store.dispatch('user/signin',this.formdata)
                 }
                 else{
                     this.$store.dispatch('user/signup', this.formdata)
