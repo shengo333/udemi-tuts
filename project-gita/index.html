@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <nav>
+        <div>
+            <a href="">Black Sea Pizza</a>
+        </div>
+        <div>
+            <a href="ourlocation.html">ourlocation</a>
+            <a href="contactUs.html">contact us</a>
+        </div>
+    </nav>
+    <div id="demo">
+        something goes here
+    </div>
+    
+<script>
+    
+
+    const getPizzas = async () => {
+
+        const response = await fetch("./db.json");
+        const data = await response.json();
+        let template = '';
+
+        if(!elementId){
+            data.pizzas.forEach(pizza => {
+                template += `
+                <div class="card" >
+                    <div class="container" id="${pizza.id}" onClick="getDetails(this.id)">
+                            <h2>${pizza.name}</h2>
+                            <p>${pizza.ingridients}<p>
+                        </div>
+                    </div>
+                `
+                document.getElementById("demo").innerHTML = template
+            });
+
+        } else if(elementId){
+
+            console.log(elementId, "element id before pizza")
+            data.pizzas.filter((pizza) => {
+                if(pizza.id == elementId){
+                    template += `
+                    <div class="card" >
+                        <div class="container" id="${pizza.id}" onClick="getDetails(this.id)">
+                                <h2>${pizza.name}</h2>
+                                <p>${pizza.ingridients}<p>
+                                <p>${pizza.text}<p>
+                            </div>
+                        </div>
+                    `
+                    document.getElementById("demo").innerHTML = template
+                }
+            });
+        }
+        
+    }
+    
+    let elementId;
+    let pizzas = getPizzas();
+
+    function getDetails(id){
+        elementId = id
+        getPizzas()
+    }
+
+                
+
+                
+            </script>
+
+</body>
+</html>
+
+<style>
+    nav{
+    display: flex;
+    justify-content: space-between;
+    background: rgba(128, 128, 128, 0.39);
+    padding: 1rem;
+  }
+  nav a{
+    text-decoration: none;
+    color: black;
+    padding: 0.5rem;
+    border: 1px solid black;
+    border-radius: 5%;
+    margin: 0 1rem;
+  }
+
+</style>

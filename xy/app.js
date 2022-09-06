@@ -2,8 +2,6 @@
 var userOne = true;
 var userTwo = false;
 
-
-
 function changeUser(){
     userOne = !userOne;
     userTwo = !userTwo;
